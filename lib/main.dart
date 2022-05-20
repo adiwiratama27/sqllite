@@ -44,8 +44,9 @@ class _SqliteAppState extends State<SqliteApp> {
                             child: Card(
                               child: ListTile(
                                 title: Text(grocery.name),
-                                leading: IconButton(
-                                  icon: Icon(Icons.delete, color: Colors.red),
+                                leading: ElevatedButton(
+                                  child: Text("Delete"),
+                                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),
                                   onPressed: () {
                                     setState(() {
                                       DatabaseHelper.instance
@@ -53,14 +54,15 @@ class _SqliteAppState extends State<SqliteApp> {
                                     });
                                   },
                                 ),
-                                trailing: IconButton(
-                                  icon: Icon(Icons.edit_calendar_outlined),
+                                trailing: ElevatedButton(
+                                  child: Text("Edit"),
+                                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),
                                   onPressed: () {
                                     setState(() {
                                       textController.text = grocery.name;
                                       selectedId = grocery.id;
                                     });
-                                  },
+                                  },  
                                 ),
                                 onTap: () {
                                   setState(() {
